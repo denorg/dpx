@@ -16,7 +16,11 @@ Then, the package is available to run:
 dpx <flags> <packageName> <arguments>
 ```
 
-For example, if you want to run the package `online` (which tells you whether you are online), you can run:
+Under the hood, the CLI finds the file to run (`cli.ts` or `mod.ts`) from the Deno registry and runs it.
+
+## 💡 Examples
+
+If you want to run the package `online` (which tells you whether you are online), you can run:
 
 ```bash
 dpx --allow-net online # You are online
