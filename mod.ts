@@ -1,9 +1,9 @@
-/** Get the file to run */
+/** Get the file URL to run */
 export async function getEntryFile(packageName: string) {
   const REPO_URL = `https://deno.land/x/${packageName}`;
   try {
-    const cliFile = await (await fetch(`${REPO_URL}/cli.tx`)).text();
-    if (cliFile) return `${REPO_URL}/cli.tx`;
+    const cliFile = await (await fetch(`${REPO_URL}/cli.ts`)).text();
+    if (cliFile) return `${REPO_URL}/cli.ts`;
   } catch (error) {}
   try {
     const modFile = await (await fetch(`${REPO_URL}/mod.ts`)).text();
