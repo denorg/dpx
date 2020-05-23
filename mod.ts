@@ -2,14 +2,20 @@
 export async function getEntryFile(packageName: string) {
   const REPO_URL = `https://deno.land/x/${packageName}`;
   const potentialFiles = ["cli.ts", "mod.ts"];
+  let fileUrl = "";
   for await (const file of potentialFiles) {
-    const fileUrl = `${REPO_URL}/${file}`;
+    fileUrl = `${REPO_URL}/${file}`;
     const fetchResult = await fetch(fileUrl);
     if (fetchResult.ok) {
       const text = await fetchResult.text();
-      if (text) return fileUrl;
+      if (text) break;
     }
+    try {
+      // This is a Deno bug: https://github.com/denoland/deno/issues/4735
+      (fetchResult.body as any)?.close();
+    } catch (error) {}
   }
+  if (fileUrl) return fileUrl;
   throw new Error("Could not find entry file");
 }
 
