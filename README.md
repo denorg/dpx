@@ -13,7 +13,7 @@ deno install --allow-run --allow-net -n dpx https://deno.land/x/dpx/cli.ts
 Then, the package is available to run:
 
 ```bash
-dpx <flags> <packageName> <arguments>
+dpx <packageName> <flags> <arguments>
 ```
 
 Under the hood, the CLI finds the file to run (`cli.ts` or `mod.ts`) from the Deno registry and runs it.
@@ -23,13 +23,13 @@ Under the hood, the CLI finds the file to run (`cli.ts` or `mod.ts`) from the De
 If you want to run the package `online` (which tells you whether you are online), you can run:
 
 ```bash
-dpx --allow-net online # You are online
+dpx online --allow-net # You are online
 ```
 
 Similarly, if you want to check whether a website is up, you can use the `up` package:
 
 ```bash
-dpx --allow-net up https://google.com  # https://google.com is up
+dpx up --allow-net https://google.com  # https://google.com is up
 ```
 
 Required permissions:
