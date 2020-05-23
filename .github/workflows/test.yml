@@ -19,4 +19,4 @@ jobs:
         with:
           deno-version: 1.x
       - name: Tests
-        run: deno test --allow-read
+        run: deno test --allow-net
