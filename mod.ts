@@ -1,14 +1,15 @@
 /** Get the file URL to run */
 export async function getEntryFile(packageName: string) {
   const REPO_URL = `https://deno.land/x/${packageName}`;
-  try {
-    const cliFile = await (await fetch(`${REPO_URL}/cli.ts`)).text();
-    if (cliFile) return `${REPO_URL}/cli.ts`;
-  } catch (error) {}
-  try {
-    const modFile = await (await fetch(`${REPO_URL}/mod.ts`)).text();
-    if (modFile) return `${REPO_URL}/mod.ts`;
-  } catch (error) {}
+  const potentialFiles = ["cli.ts", "mod.ts"];
+  for await (const file of potentialFiles) {
+    const fileUrl = `${REPO_URL}/${file}`;
+    const fetchResult = await fetch(fileUrl);
+    if (fetchResult.ok) {
+      const text = await fetchResult.text();
+      if (text) return fileUrl;
+    }
+  }
   throw new Error("Could not find entry file");
 }
 
