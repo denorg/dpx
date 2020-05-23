@@ -7,7 +7,7 @@
 Install DPX globally using:
 
 ```bash
-deno install --allow-run --allow-net -n dpx https://raw.githubusercontent.com/denorg/dpx/master/cli.ts
+deno install --allow-run --allow-net -n dpx https://deno.land/x/dpx/cli.ts
 ```
 
 Then, the package is available to run:
@@ -42,7 +42,7 @@ Required permissions:
 You can use this package by importing it:
 
 ```ts
-import { dpx } from "https://raw.githubusercontent.com/denorg/dpx/master/mod.ts";
+import { dpx } from "https://deno.land/x/dpx/mod.ts";
 
 const result = dpx("packageName", ["--flags"], ["args"]);
 ```
@@ -50,7 +50,7 @@ const result = dpx("packageName", ["--flags"], ["args"]);
 Alternatively, you can use it directly from the CLI by using deno run:
 
 ```bash
-deno run --allow-read --allow-run https://raw.githubusercontent.com/denorg/dpx/master/cli.ts <flags> <packageName> <arguments>
+deno run --allow-read --allow-run https://deno.land/x/dpx/cli.ts <flags> <packageName> <arguments>
 ```
 
 ## 👩‍💻 Development
