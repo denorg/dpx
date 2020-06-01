@@ -2,7 +2,13 @@
 
 `dpx` is like `npx` for Deno, easily run a Deno CLI package.
 
-[![Test CI](https://github.com/denorg/dpx/workflows/Test%20CI/badge.svg)](https://github.com/denorg/dpx/actions)
+[![Deno CI](https://github.com/denorg/dpx/workflows/Deno%20CI/badge.svg)](https://github.com/denorg/dpx/actions)
+[![GitHub](https://img.shields.io/github/license/denorg/dpx)](https://github.com/denorg/dpx/blob/master/LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/denorg/dpx)](https://github.com/denorg/dpx/graphs/contributors)
+[![Deno Starter](https://img.shields.io/badge/deno-starter-brightgreen)](https://denorg.github.io/starter/)
+[![Made by Denorg](https://img.shields.io/badge/made%20by-denorg-0082fb)](https://github.com/denorg)
+[![TypeScript](https://img.shields.io/badge/types-TypeScript-blue)](https://github.com/denorg/dpx)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Install DPX globally using:
 
