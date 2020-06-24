@@ -11,7 +11,7 @@ const DENO_FLAGS = [
   "--allow-run",
   "--allow-write=",
   "--reload",
-  "-R",
+  "-r",
   "--lock=",
   "--importmap=",
   "--unstable",

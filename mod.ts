@@ -33,8 +33,8 @@ export async function dpx(
   const filePath = await getEntryFile(packageName);
   return Deno.run({
     cmd: ["deno", "run", ...flags, filePath, ...args],
-    stdout: "inherit",
-    stderr: "inherit",
-    stdin: "inherit",
+    stdout: "null",
+    stderr: "null",
+    stdin: "null",
   }).status();
 }
