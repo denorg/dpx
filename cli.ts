@@ -1,4 +1,5 @@
 import { dpx } from "./mod.ts";
+import { parse } from "https://deno.land/std/flags/mod.ts";
 
 const DENO_FLAGS = [
   "-A",
@@ -11,7 +12,7 @@ const DENO_FLAGS = [
   "--allow-run",
   "--allow-write=",
   "--reload",
-  "-R",
+  "-r",
   "--lock=",
   "--importmap=",
   "--unstable",
@@ -25,6 +26,11 @@ if (import.meta.main) {
   const flags: string[] = [];
   const args: string[] = [];
   let packageName = "";
+  let registry: string | undefined = undefined;
+
+  let argsv = parse(Deno.args);
+  registry = argsv.registry
+
   Deno.args.forEach((arg, index) => {
     if (index === 0) packageName = arg;
     let isDenoFlag = false;
@@ -38,5 +44,5 @@ if (import.meta.main) {
     if (isDenoFlag) flags.push(arg);
     else args.push(arg);
   });
-  dpx(packageName, flags, args);
+  dpx(packageName, flags, args, registry);
 }
