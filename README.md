@@ -40,7 +40,7 @@ dpx up --allow-net https://google.com  # https://google.com is up
 
 Required permissions:
 
-1. `--allow-read`
+1. `--allow-net`
 2. `--allow-run`
 
 ## ⭐ API
