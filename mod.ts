@@ -1,8 +1,8 @@
-import { getRegistryUrl } from "./src/utils.ts"
+import { getRegistryUrl } from "./src/utils.ts";
 
 /** Get the file URL to run */
 export async function getEntryFile(packageName: string, registry?: string) {
-  let repo_url = getRegistryUrl(packageName, registry)
+  let repo_url = getRegistryUrl(packageName, registry);
   const potentialFiles = ["cli.ts", "mod.ts"];
   let fileUrl = "";
   for await (const file of potentialFiles) {
@@ -31,13 +31,13 @@ export async function dpx(
   packageName: string,
   flags: string[],
   args: string[],
-  registry?: string
+  registry?: string,
 ) {
   const filePath = await getEntryFile(packageName, registry);
-  return Deno.run({
-    cmd: ["deno", "run", ...flags, filePath, ...args],
+  return new Deno.Command("deno", {
+    args: ["run", ...flags, filePath, ...args],
     stdout: "inherit",
     stderr: "inherit",
     stdin: "inherit",
-  }).status();
+  }).spawn().status;
 }
